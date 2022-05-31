@@ -1,0 +1,15 @@
+{
+  "name": "folder",
+  "version": "1.0.0",
+  "description": "Very descriptive description",
+  "main": "Script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/randomStuff1234/Website"
+  },
+  "author": "Nate",
+  "license": "ISC"
+}
