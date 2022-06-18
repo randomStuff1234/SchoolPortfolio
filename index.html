@@ -13,19 +13,36 @@
 
 <body class="bg-light">
     <!-- More Bootstrap Stuff-->
+    <script src = "Canvas.js"></script>
+    <script src= "Components.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-    <script>
-    </script>
+    <!-- <script> 
+        var canvas = new Canvas(window.innerWidth - 20, window.innerHeight - 20);
+        canvas.start();
+        let graph = new Graph(canvas, canvas.width - 20, canvas.height, 10, -0, 2*Math.PI, 10, -Math.PI, Math.PI, "rgb(255, 255, 255)", "rgb(0,0,0)", (x, y) => {
+            let x2 = 0
+            for (i = 0; i < 10; i++) {
+                x2 += Math.sin((10**i)*x)/(10**i)
+            }
+            return (Math.abs(y - Math.sin(x2)) < 0.1)
+        })
+        console.log (graph)
+        canvas.addComponent(graph)
+
+        let interval = setInterval(() => {
+            canvas.redraw()
+        }, 0.001);
+    </script>-->
     <!-- Navbar -->
     <nav class="navbar navbar-expand-xl bg-primary">
         <div class="container-fluid">
             <a class="navbar-brand text-light ms-3 fs-4" href="#home">Nate's Portfilo</a>
-<!--             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> -->
-<!--             <span class="navbar-toggler-icon"></span> -->
-<!--             </button> -->
-            <li class="nav-item me-auto my-auto mb-lg-0">
-                <a class="nav-link text-light" href="#">About Me</a>
-            </li>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span> 
+            </button>
+            <ul class="nav-item me-auto mb-lg-0">
+                <a class="nav-link text-light" href="#about_me">About Me</a>
+            </ul>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item dropdown">
@@ -52,13 +69,13 @@
     <h1 class="display-4 fw-bold mx-auto text-center pt-4" id ="home"> Nate's Portfolio </h1>
     
     <div class="px-4 py-3 mb-5 text-center">
-        <p class="fs-2 fw-bolder mx-auto mb-2" id ="home"> My Mission Statemnt </p>
+        <p class="fs-2 fw-bolder mx-auto mb-2" id ="home"> My Mission Statement </p>
         <div class="col-lg-6 mx-auto">
-          <p class="lead mb-4"> My life's missions are to leave the world better then I left it by trying to make everyone I meet happier than they were before meeting them, making decisions that are morraly right, and striving to only support companies that support basic moral values like human rights, and to further my own and other's knowledge of the universe by trying to learn, to listen to and to question everything.</p>
-          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-            <button type="button" class="btn btn-primary btn-lg px-4 gap-3"> About Me </button>
-            <button type="button" class="btn btn-outline-secondary btn-lg px-4"> My Work </button>
-          </div>
+            <p class="lead mb-4"> My life's missions are to leave the world better then I left it by trying to make everyone I meet happier than they were before meeting them, making decisions that are morraly right, and striving to only support companies that support basic moral values like human rights, and to further my own and other's knowledge of the universe by trying to learn, to listen to and to question everything.</p>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                <button type="button" class="btn btn-primary btn-lg px-4 gap-3" id="about_me"> About Me </button>
+                <button type="button" class="btn btn-outline-secondary btn-lg px-4"> My Work </button>
+            </div>
         </div>
     </div>
 
@@ -67,11 +84,11 @@
         <div class="px-4 py-3 mb-5 text-center">
         <p class="fs-2 fw-bolder mx-auto mb-2" id ="home"> About Me </p>
         <div class="col-lg-6 mx-auto">
-          <p class="lead mb-4"> lorem impsum dolor sit admit something idk foo bar  </p>
-          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-            <button type="button" class="btn btn-primary btn-lg px-4 gap-3"> About Me </button>
-            <button type="button" class="btn btn-outline-secondary btn-lg px-4"> My Work </button>
-          </div>
+            <p class="lead mb-4"> lorem impsum dolor sit admit something idk foo bar  </p>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                <button type="button" class="btn btn-primary btn-lg px-4 gap-3"> About Me </button>
+                <button type="button" class="btn btn-outline-secondary btn-lg px-4"> My Work </button>
+            </div>
         </div>
     </div>
 </body>
