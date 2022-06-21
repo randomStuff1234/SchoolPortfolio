@@ -7,14 +7,9 @@ class Canvas {
      * @constructor
      * @param {number} width The width of the game
      * @param {number} height The height of the game
-     * @param {string} [name] The name of the canvas html element to store in this object. If no name is submitted then this will create a new element at the start of the page
      */
-    constructor (width, height, name = false) {
-        if (name) {
-            this.element = document.getElementByName(name)[0]
-        } else {
-            this.element = document.createElement("canvas")
-        }
+    constructor (width, height) {
+        this.element = document.createElement("canvas")
         this.element.width = width
         this.element.height = height
         /**
