@@ -7,24 +7,25 @@ class Canvas {
      * @constructor
      * @param {number} width The width of the game
      * @param {number} height The height of the game
+     * @param {string} [name] The name of the canvas html element to store in this object. If no name is submitted then this will create a new element at the start of the page
      */
-    constructor (width, height) {
-        /**
-         * @type htmlElement
-         * The canvas element in the html page
-         */
-        this.element = document.createElement("canvas");
+    constructor (width, height, name = false) {
+        if (name) {
+            this.element = document.getElementByName(name)[0]
+        } else {
+            this.element = document.createElement("canvas")
+        }
         this.element.width = width
         this.element.height = height
         /**
          * The context for the canvas or something
          */
-        this.context = this.element.getContext("2d");
+        this.context = this.element.getContext("2d")
         /**
          * List of all components drawn on this canvas
          * @type {[Component]}
          */
-        this.components = [];
+        this.components = []
         this.width = width
         this.height = height
     }
@@ -33,7 +34,7 @@ class Canvas {
      * @param {Component} component
      */
     addComponent (component) {
-        this.components.push(component);
+        this.components.push(component)
     }
     /**
      * Adds an array of components to the list of this canvas' components
