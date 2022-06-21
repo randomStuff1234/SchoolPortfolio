@@ -68,8 +68,9 @@ class Canvas {
     }
     /**
      * Inserts the canvas into the page
+     * @param {Node} refrenceNode 
      */
-    start() { 
-        document.body.insertBefore(this.element, document.body.childNodes[0]);
+    start(refrenceNode) { 
+        refrenceNode.parentNode.replaceChild(this.element, refrenceNode);
     }
 }
