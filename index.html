@@ -350,8 +350,8 @@ class FunctionGraph extends Rect {
             this.y3 += increments[3]
             timeLeft -= 1
             if (timeLeft == 0) {
-                clearInterval(interval)
-                postZoomCode()   
+                postZoomCode()
+                clearInterval(interval)   
             }
         }, 100)
     }
@@ -428,12 +428,12 @@ class Point extends Square{
     <!-- Navbar -->
     <nav class="navbar navbar-expand-xl bg-primary bg-gradient">
         <div class="container-fluid">
-            <a class="navbar-brand text-light ms-3 fs-4" href="#" onClick = "missionStatement()">Nate's Portfilo</a>
+            <a class="navbar-brand text-light ms-3 fs-4" href="#"  onClick = "zoom('#missionStatement',0, 6.28, -1.5, 1.5, 5)">Nate's Portfilo</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span> 
             </button>
             <ul class="nav-item me-auto mb-lg-0">
-                <a class="nav-link text-light" href="#about_me">About Me</a>
+                <a class="nav-link text-light" href="#about_me" onClick = "zoom('#aboutMe',3 , 3.8, -0.38, 0, 5)">About Me</a>
             </ul>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -459,14 +459,14 @@ class Point extends Square{
     <!-- Not the navbar -->
     
     <h1 class="display-4 fw-bold mx-auto text-center pt-4"> Nate's Portfolio </h1>
-    <div class="px-4 py-3 mb-5 text-center NLpage" id ="missionStatement">
+    <div class="px-4 py-3 mb-5 text-center NLpage NLactive" id ="missionStatement">
         <p class="fs-2 fw-bolder mx-auto mb-2"> My Mission Statement </p>
         <div class="col-lg-6 mx-auto">
             <p class="lead mb-1"> My life's missions are:
             </p>
             <p class="mb-4 bg-light" style="--bs-bg-opacity: .75;"> 1. To leave the world better then I left it by trying to make everyone I meet happier than they were before meeting them, making decisions that are moraly right, and striving to only support companies that support basic moral values, <br> 2. To further my own and other's knowledge of the universe by trying to learn, to listen to and to question everything.</p>
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                <button type="button" class="btn btn-primary btn-lg px-4 gap-3" id="about_me" onClick = "aboutMe()"> About Me </button>
+                <button type="button" class="btn btn-primary btn-lg px-4 gap-3" id="about_me" onClick = "zoom('#aboutMe',3 , 3.8, -0.38, 0, 5)"> About Me </button>
                 <button type="button" class="btn btn-outline-secondary btn-lg px-4"> My Work </button>
             </div>
         </div>
@@ -474,12 +474,12 @@ class Point extends Square{
 
     <div class="b-example-divider"></div>
     
-    <div class="px-4 py-3 mb-5 text-center NLpage" id = "aboutMe">
-        <p class="fs-2 fw-bolder mx-auto mb-2"> About Me </p>
+    <div class="px-4 py-3 mb-5 text-center NLpage d-none" id = "aboutMe">
+        <p class="fs-2 fw-bolder mx-auto mb-2"> About me </p>
         <div class="col-lg-6 mx-auto">
             <p class="lead mb-4 bg-light" style="--bs-bg-opacity: .75;"> lorem impsum dolor sit admit something idk foo bar  </p>
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                <button type="button" class="btn btn-primary btn-lg px-4 gap-3"> About Me </button>
+                <button type="button" class="btn btn-primary btn-lg px-4 gap-3" onClick = "zoom('#missionStatement',0, 6.28, -1.5, 1.5, 5)"> My Mission </button>
                 <button type="button" class="btn btn-outline-secondary btn-lg px-4"> My Work </button>
             </div>
         </div>
@@ -507,18 +507,24 @@ class Point extends Square{
         })
         canvas.addComponent(graph)
         console.log(canvas)
-        function aboutMe() {
-            document.querySelectorAll(".NLpage").forEach(hideEl)
+        function zoom(tag, x2, x3, y2, y3, time) {
+            let activeEl = document.querySelector(".NLactive")
+            let newEl = document.querySelector(tag)
+            activeEl.classList.remove("NLactive")
+            newEl.classList.add("NLactive")
+            activeEl.style.opacity = 1
+            let timeLeft = time * 10
+            let interval = setInterval (() => {
+                activeEl.style.opacity -= 1/timeLeft
+                timeLeft -= 1
+                if (timeLeft == 0) {
+                    activeEl.classList.add("d-none")
+                    clearInterval(interval)
+                }
+            }, 100)
             d = 20
-            graph.zoom(3, 3.8, -0.38, 0, 5, () = > {
-                document.querySelector("#aboutMe").classList.remove("d-none")
-            })
-        }
-        function missionStatement() {
-            document.querySelectorAll(".NLpage").forEach(hideEl)
-            d = 10
-            graph.zoom(0, 6.28, -1.5, 1.5, 5, () = > {
-                document.querySelector("#missionStatement").classList.remove("d-none")
+            graph.zoom(x2, x3, y2, y3, time, () => {
+                newEl.classList.remove("d-none")
             })
         }
         let interval = setInterval(() => {
