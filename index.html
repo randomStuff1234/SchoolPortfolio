@@ -428,12 +428,12 @@ class Point extends Square{
     <!-- Navbar -->
     <nav class="navbar navbar-expand-xl bg-primary bg-gradient">
         <div class="container-fluid">
-            <a class="navbar-brand text-light ms-3 fs-4" href="#"  onClick = "zoom('#missionStatement',0, 6.28, -1.5, 1.5, 5)">Nate's Portfilo</a>
+            <a class="navbar-brand text-light ms-3 fs-4" href="#"  onClick = "zoom('#missionStatement',0, 6.28, -1.5, 1.5, 5, 10)">Nate's Portfilo</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span> 
             </button>
             <ul class="nav-item me-auto mb-lg-0">
-                <a class="nav-link text-light" href="#about_me" onClick = "zoom('#aboutMe',3 , 3.8, -0.38, 0, 5)">About Me</a>
+                <a class="nav-link text-light" href="#about_me" onClick = "zoom('#aboutMe',3 , 3.8, -0.38, 0, 5, 20)">About Me</a>
             </ul>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -466,7 +466,7 @@ class Point extends Square{
             </p>
             <p class="mb-4 bg-light" style="--bs-bg-opacity: .75;"> 1. To leave the world better then I left it by trying to make everyone I meet happier than they were before meeting them, making decisions that are moraly right, and striving to only support companies that support basic moral values, <br> 2. To further my own and other's knowledge of the universe by trying to learn, to listen to and to question everything.</p>
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                <button type="button" class="btn btn-primary btn-lg px-4 gap-3" onClick = "zoom('#aboutMe',3 , 3.8, -0.38, 0, 5)"> About Me </button>
+                <button type="button" class="btn btn-primary btn-lg px-4 gap-3" onClick = "zoom('#aboutMe',3 , 3.8, -0.38, 0, 5, 20)"> About Me </button>
                 <button type="button" class="btn btn-outline-secondary btn-lg px-4"> My Work </button>
             </div>
         </div>
@@ -507,7 +507,7 @@ class Point extends Square{
         })
         canvas.addComponent(graph)
         console.log(canvas)
-        function zoom(tag, x2, x3, y2, y3, time) {
+        function zoom(tag, x2, x3, y2, y3, time, d2) {
             let activeEl = document.querySelector(".NLactive")
             let newEl = document.querySelector(tag)
             activeEl.classList.remove("NLactive")
@@ -516,14 +516,14 @@ class Point extends Square{
             newEl.style.opacity = 1
             let timeLeft = time * 10
             let interval = setInterval (() => {
-                activeEl.style.opacity -= 1/timeLeft
+                activeEl.style.opacity -= 0.5/timeLeft
                 timeLeft -= 1
                 if (timeLeft == 0) {
                     activeEl.classList.add("d-none")
                     clearInterval(interval)
                 }
             }, 100)
-            d = 20
+            d = d2
             graph.zoom(x2, x3, y2, y3, time, () => {
                 newEl.classList.remove("d-none")
             })
