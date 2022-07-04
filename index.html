@@ -454,7 +454,7 @@ class Point extends Square{
             <p class="mb-4 bg-light" style="--bs-bg-opacity: .75;"> 1. To leave the world better then I left it by trying to make everyone I meet happier than they were before meeting them, making decisions that are moraly right, and striving to only support companies that have basic moral values, <br> 2. To further my own and other's knowledge of the universe by trying to learn, to listen to and to question everything.</p>
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
                 <button type="button" class="btn btn-primary btn-lg px-4 gap-3" onClick = "zoom('#aboutMe',3 , 3.8, -0.38, 0)"> About Me </button>
-                <button type="button" class="btn btn-outline-secondary btn-lg px-4" onClick = "zoom('#writeUps', 3.538, 3.548, -0.00477707006369 - 0.2435, - 0.2435)">  Write-Ups </button>
+                <button type="button" class="btn btn-outline-secondary btn-lg px-4" onClick = "zoom('#codingProjects', 3.5454, 3.5456, -0.246075541401, -0.24598)">  Coding Projects </button>
             </div>
         </div>
     </div>
@@ -464,13 +464,12 @@ class Point extends Square{
     <div class="px-4 py-3 mb-5 text-center NLpage d-none" id = "aboutMe">
         <p class="fs-2 fw-bolder mx-auto mb-1"> About me </p>
         <div class="col-lg-20 mx-auto">
-            <p class="lead mb-1 bg-light" style="--bs-bg-opacity: .75;"> Hi, my name is Nate,
-    </p>
+            <p class="lead mb-1 bg-light" style="--bs-bg-opacity: .75;"> Hi, my name is Nate, </p>
             <p class = "text-start bg-light" style = "--bs-bg-opacity: .75; text-indent: 40px;">   I am a software engineer with knowledge in JS, Python, Swift, and a bit of HTML and have used them to work on several projects, including this website, and I also have a well-rounded understanding of math which includes Algebra 2, Trigonometry, Data Analysis, some basic Linear Algebra, and complex analysis concepts, as well as fractal Geometry. I am motivated by the want to leave this world knowing that I contributed something to our constantly expanding knowledge of how our world works and by the inherent beauty of the mechanics that govern the world we live in. I enjoy doing things that most people find monotonous and boring, like math or programming, and I don’t really know why. I also believe in trying to view things from an unorthodox perspective like using Google Apps Script to make a fully functional multiplayer game in google sheets or using a graphing calculator to make art. </p>
 <p class = "text-start, mb-4 bg-light" style ="text-indent: 40px;">I am currently doing “freelance work” (or in other words I’m unemployed) at the time of writing this, however, if you are working at a software company or start-up and you think I can make a useful contribution to your team then you can reach me at nate@heroesacademy.org or visit the contact me page on this website. Ok, now that you have fallen asleep, here is some more personal information about me, I am 15 years young, I have a dog who’s a really good boy, a cat who’s average, and a sibling who is under average, I am a vegetarian but I know nobody cares, and I do not believe that pineapple belongs on pizza.  </p>
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                <button type="button" class="btn btn-primary btn-lg px-4 gap-3" onClick = "zoom('#missionStatement',0, 6.28, -1.5, 1.5)"> My Mission </button>
                 <button type="button" class="btn btn-outline-secondary btn-lg px-4" onClick = "zoom('#writeUps', 3.538, 3.548, -0.00477707006369 - 0.2435, - 0.243)"> Write-Ups </button>
+                <button type="button" class="btn btn-primary btn-lg px-4 gap-3" onClick = "zoom('#missionStatement',0, 6.28, -1.5, 1.5)"> My Mission </button>
             </div>
         </div>
     </div>
@@ -478,10 +477,20 @@ class Point extends Square{
     <div class="px-4 py-3 mb-5 text-center NLpage d-none" id = "writeUps">
         <p class="fs-2 fw-bolder mx-auto mb-2"> My Write-Ups</p>
         <div class="col-lg-6 mx-auto">
+            <p class = "text-center bg-light" style = "--bs-bg-opacity: .75; text-indent: 40px;"> Over this year I have written a variety of "Write-Ups" including: </p>
+            <ul>
+                <li> <p class="text-start"><a href = "https://docs.google.com/document/d/1oq8HaeybJba44qZsvqOcvAoktFzj_3qBk2-KhofVRxQ/edit?usp=sharing">Case Studies (Math)</a></p></li>
+                <li> <p class="text-start"><a href = "https://docs.google.com/document/d/12zbUc3owKyXAGVLgSxuOBywTuT65TLGsRCn5UWQK250/edit?usp=sharing">Civilizations (History)</a></p></li>
+                <li> <p class="text-start"><a href = "" > Coming Soon: Genre (ELA) (The last genre I did was a while ago and kinda sucked) </a></p></li>
+                <li> <p class="text-start"><a href = ""> Coming Soon: Deep Book Reviews (didn't record the last one I did)</a></p></li>
+            </ol>
+        </div>
+        <div class="col-lg-6 mx-auto">
             <p class="lead mb-4 bg-light" style="--bs-bg-opacity: .75;"> </p>
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                <button type="button" class="btn btn-primary btn-lg px-4 gap-3" onClick =  "zoom('#missionStatement', 0, 6.28, -1.5, 1.5)"> My Mission </button>
-                <button type="button" class="btn btn-outline-secondary btn-lg px-4" onClick = "zoom('#codingProjects', 3.5454, 3.5456, -0.246075541401, -0.24598)"> Coding Projects</button>
+                <button type="button" class="btn btn-primary btn-lg px-4 gap-3" onClick = "zoom('#codingProjects', 3.5454, 3.5456, -0.246075541401, -0.24598)"> Coding Projects</button>
+
+                <button type="button" class="btn btn-outline-secondary btn-lg px-4" onClick = "zoom('#aboutMe',3 , 3.8, -0.38, 0)"> About Me </button>
             </div>
         </div>
     </div>
@@ -492,7 +501,7 @@ class Point extends Square{
             <p class="lead mb-4 bg-light" style="--bs-bg-opacity: .75;"> </p>
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
                 <button type="button" class="btn btn-primary btn-lg px-4 gap-3" onClick = "zoom('#missionStatement', 0, 6.28, -1.5, 1.5)"> My Mission </button>
-                <button type="button" class="btn btn-outline-secondary btn-lg px-4" onClick = "zoom('#aboutMe', 3 , 3.8, -0.38, 0)"> About Me </button>
+                <button type="button" class="btn btn-outline-secondary btn-lg px-4" onClick = "zoom('#writeUps', 3.538, 3.548, -0.00477707006369 - 0.2435, - 0.243)"> Write-Ups </button>
             </div>
         </div>
     </div>
