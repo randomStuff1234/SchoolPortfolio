@@ -537,9 +537,7 @@ class Point extends Square{
         </div>
     </div>
     <canvas id="graphCanvas"> </canvas>
-    <button type="button" class="btn btn-danger btn-lg px-4 gap-3" onClick = "infiniteZoom = false"> Toggle Zoom Off </button>
-    <button type="button" class="btn btn-success btn-lg px-4 gap-3" onClick = "infiniteZoom = true"> Toggle Zoom On </button>
-
+    <button type="button" class="btn btn-danger btn-lg px-4 gap-3" onClick = "infiniteZoom != infiniteZoom"> Toggle Zoom </button>
     <script> 
         var canvas = new Canvas(window.innerWidth, window.innerHeight, "graphCanvas")
         canvas.start(document.getElementById("graphCanvas"))
