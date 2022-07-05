@@ -539,6 +539,7 @@ class Point extends Square{
         </div>
     </div>
     <canvas id="graphCanvas"> </canvas>
+    <button type="button" class="btn btn-danger btn-lg px-4 gap-3" onClick = "infiniteZoom != infiniteZoom"> Toggle Zoom </button>
     <script> 
         var canvas = new Canvas(window.innerWidth, window.innerHeight, "graphCanvas")
         canvas.start(document.getElementById("graphCanvas"))
@@ -558,6 +559,7 @@ class Point extends Square{
             }   
             return (y)
         })
+        let zooms = [['#aboutMe', 3 , 3.8, -0.38, 0, 20], ['#writeUps', 3.538, 3.548, -0.00477707006369 - 0.2435, - 0.2435], ['#graphs', 3.5455, 3.54555, -0.246075541401, -0.24598, -0.38, 0], ['#contact', 3.5455, 3.54555, -0.0000238853503 -0.246035, -0.246035, -0.38, 0], ['#missionStatement', 0, 6.28, -1.5, 1.5]]
         canvas.addComponent(graph)
         console.log(canvas)
         function zoom(tag, x2, x3, y2, y3) {
@@ -582,7 +584,19 @@ class Point extends Square{
         }
         let interval = setInterval(() => {
             canvas.redraw()
-        }, 1);
+            if (infiniteZoom) {
+
+                if (Math.floor(timeElapsed*10) % 100 == 0) {
+                    console.log(Math.floor(timeElapsed*10)/100)
+                    let nextZoom = zooms[Math.floor(timeElapsed*10)/100]
+                    zoom(nextZoom[0], nextZoom[1], nextZoom[2], nextZoom[3],nextZoom[4])
+                }
+            }
+            timeElapsed += 1/10
+            if (timeElapsed >= 50) {
+                timeElapsed -= 50
+            }
+        }, 10);
     </script>
 </body>
 
