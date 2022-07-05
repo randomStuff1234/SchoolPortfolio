@@ -344,7 +344,6 @@ class FunctionGraph extends Rect {
         let timeLeft = time
         let interval = setInterval (() => {
             [this.x2, this.x3, this.y2, this.y3] = [this.x2, this.x3, this.y2, this.y3].map((a, b) => newCoords[b]*(time-timeLeft)/time + previous[b]*timeLeft/time)
-            console.log((time-timeLeft)/time)            
             timeLeft -= 1
             if (timeLeft == -1) {
                 //[this.x2, this.x3, this.y2, this.y3] = newCoords
@@ -422,18 +421,17 @@ class Point extends Square{
     }
 }
     </script>
-    
     <!-- Navbar -->
     <nav class="navbar navbar-expand-xl bg-primary bg-gradient">
         <div class="container-fluid">
             <a class="navbar-brand text-light ms-3" href="#"  onClick = "zoom('#missionStatement', 0, 6.28, -1.5, 1.5)">Nate's Portfilo</a>
             <a class="nav-link text-light" href="#about_me" onClick = "zoom('#aboutMe', 3 , 3.8, -0.38, 0, 20)">About Me</a>
             <a class="nav-link text-light" href="#writeUps" onClick = "zoom('#writeUps', 3.538, 3.548, -0.00477707006369 - 0.2435, - 0.2435)">Write-Ups</a>
-            <a class="nav-link text-light" href="#codingProjects" onClick = "zoom('#codingProjects', 3.5454, 3.5456, -0.246075541401, -0.24598)">Coding Projects</a>
+            <a class="nav-link text-light" href="#codingProjects" onClick = "zoom('#writeUps', 3.538, 3.548, -0.00477707006369 - 0.2435, - 0.2435)">Coding Projects</a>
             <a class="nav-link text-light" href="#about_me" onClick = "zoom('#graphs', 3.5455, 3.54555, -0.246075541401, -0.24598, -0.38, 0)">Desmos Graphs</a>
             <a class="nav-link text-light" href="#about_me" onClick = "zoom('#contact', 3.5455, 3.54555, -0.0000238853503 -0.246035, -0.246035, -0.38, 0)">Contact Info</a>
-            <a class="nav-link text-primary" href="#about_me" onClick = "zoom('#aboutMe',3 , 3.8, -0.38, 0)">About Me</a>
-            <a class="nav-link text-primary" href="#about_me" onClick = "zoom('#aboutMe',3 , 3.8, -0.38, 0)">About Me</a>
+            <a class="nav-link text-primary" href="#about_me" onClick = "zoom('#aboutMe', 3 , 3.8, -0.38, 0)">About Me</a>
+            <a class="nav-link text-primary" href="#about_me" onClick = "zoom('#aboutMe', 3 , 3.8, -0.38, 0)">About Me</a>
             </ul>
                 <form class="d-flex" role="search">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -558,6 +556,7 @@ class Point extends Square{
             }   
             return (y)
         })
+        let zooms = [['#aboutMe', 3 , 3.8, -0.38, 0, 20], ['#writeUps', 3.538, 3.548, -0.00477707006369 - 0.2435, - 0.2435],, ['#graphs', 3.5455, 3.54555, -0.246075541401, -0.24598, -0.38, 0], ['#contact', 3.5455, 3.54555, -0.0000238853503 -0.246035, -0.246035, -0.38, 0], ['#missionStatement', 0, 6.28, -1.5, 1.5]]
         canvas.addComponent(graph)
         console.log(canvas)
         function zoom(tag, x2, x3, y2, y3) {
@@ -580,9 +579,22 @@ class Point extends Square{
                 newEl.classList.remove("d-none")
             })
         }
+        let timeElapsed = 0
+        let infiniteZoom = true
         let interval = setInterval(() => {
             canvas.redraw()
-        }, 1);
+            if (infiniteZoom) {
+                console.log(timeElapsed)
+                if (Math.floor(timeElapsed*10) % 100 == 0) {
+                    let nextZoom = zooms[Math.floor(timeElapsed*10)/100]
+                    zoom(nextZoom[0], nextZoom[1], nextZoom[2], nextZoom[3],nextZoom[4])
+                }
+            }
+            timeElapsed += 1/10
+            if (timeElapsed >= 50) {
+                timeElapsed -= 50
+            }
+        }, 10);
     </script>
 </body>
 
